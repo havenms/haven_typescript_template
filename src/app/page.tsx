@@ -8,7 +8,6 @@ import {
 	CardFooter,
 	CardDescription,
 } from '@/components/ui/card';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -30,17 +29,16 @@ import {
 	PaletteIcon,
 	LayoutGridIcon,
 	SmileIcon,
+	UserIcon,
 } from 'lucide-react';
+import { ProfileForm } from '@/components/form-example';
+import { MainNav } from '@/components/navigation-menu';
 
 export default function Home() {
 	return (
 		<div className='min-h-screen bg-background'>
-			<header className='px-8 py-6 flex items-center justify-between border-b shadow-subtle'>
-				<h1 className='text-2xl font-bold text-primary'>
-					HavenTS Template
-				</h1>
-				<ThemeToggle />
-			</header>
+			{/* Replace the old header with the new MainNav component */}
+			<MainNav />
 
 			<main className='container mx-auto py-12 px-4 md:px-6'>
 				{/* Hero Section */}
@@ -208,6 +206,17 @@ export default function Home() {
 				</div>
 
 				{/* Form Elements */}
+				<div className='mb-16'>
+					<h3 className='text-2xl font-semibold mb-6 flex items-center gap-2'>
+						<UserIcon className='h-5 w-5 text-primary' />
+						Enhanced Form Example
+					</h3>
+					<div className='bg-background border border-border/30 rounded-lg p-6 shadow-elevation-1'>
+						<ProfileForm />
+					</div>
+				</div>
+
+				{/* Simple Form Examples */}
 				<div className='mb-16'>
 					<h3 className='text-2xl font-semibold mb-6'>
 						Form Components

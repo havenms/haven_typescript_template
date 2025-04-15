@@ -127,6 +127,12 @@
 	/* Font settings */
 	--font-sans: 'Noto Sans Duployan', system-ui, sans-serif;
 	--font-mono: monospace;
+
+	/* RGB versions of your colors for alpha operations */
+	--primary-rgb: 62, 116, 147; /* Approximate RGB value for your primary */
+	--secondary-rgb: 128, 131, 193; /* Approximate RGB value for your secondary */
+	--accent-rgb: 130, 150, 189; /* Approximate RGB value for your accent */
+	--destructive-rgb: 232, 75, 75; /* Approximate RGB value for your destructive */
 }
 
 .dark {
@@ -247,5 +253,73 @@
 	}
 	.dialog {
 		box-shadow: var(--shadow-xlarge);
+	}
+
+	.text-shadow-sm {
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	}
+
+	.text-shadow {
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.shadow-elevation-hover {
+		transition: box-shadow 0.2s ease, transform 0.1s ease;
+	}
+
+	.shadow-elevation-hover:hover {
+		box-shadow: var(--shadow-large);
+		transform: translateY(-1px);
+	}
+
+	.shadow-elevation-hover:active {
+		box-shadow: var(--shadow-small);
+		transform: translateY(0);
+	}
+
+	.bg-gradient-primary {
+		background-image: linear-gradient(
+			to right,
+			oklch(var(--primary)),
+			oklch(var(--primary) / 0.9)
+		);
+	}
+
+	.bg-gradient-secondary {
+		background-image: linear-gradient(
+			to right,
+			oklch(var(--secondary)),
+			oklch(var(--secondary) / 0.9)
+		);
+	}
+
+	.bg-gradient-accent {
+		background-image: linear-gradient(
+			to right,
+			oklch(var(--accent)),
+			oklch(var(--accent) / 0.9)
+		);
+	}
+
+	/* Background grid pattern */
+	.bg-grid-pattern {
+		background-image: linear-gradient(
+				to right,
+				oklch(var(--foreground) / 0.05) 1px,
+				transparent 1px
+			),
+			linear-gradient(
+				to bottom,
+				oklch(var(--foreground) / 0.05) 1px,
+				transparent 1px
+			);
+		background-size: 20px 20px;
+	}
+
+	/* Selection styling for better contrast */
+	::selection {
+		background-color: oklch(var(--primary) / 0.2);
+		color: oklch(var(--primary-foreground));
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 	}
 }
